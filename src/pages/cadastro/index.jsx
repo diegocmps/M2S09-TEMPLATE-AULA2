@@ -3,7 +3,14 @@ import styles from './styles.module.css'
 import { useForm } from 'react-hook-form'
 
 export function CadastroPage() {
-    const { register, handleSubmit } = useForm()
+
+    const { register, handleSubmit, formState } = useForm({
+        defaultValues: {
+            idade: 0,
+        }
+    })
+
+    const { errors } = formState
 
     function onSubmit(data) {
 
@@ -49,11 +56,17 @@ export function CadastroPage() {
                         <label htmlFor="exampleFormControlInput1" className="form-label">Idade</label>
                         <input
                             type="text"
-                            className="form-control"
+                            className={`form-control ${errors.idade && 'is-invalid'}`}
                             id="exampleFormControlInput1"
                             placeholder="18"
-                            {...register('idade')}
+                            {...register('idade', {
+                                min: {
+                                    value: 18,
+                                    message: 'Permitido apenas para maiores de 18 anos.'
+                                }
+                            })}
                         />
+                        {errors.idade && <span className='text-danger text-xs'>{errors.idade.message}</span>}
                     </div>
 
 
