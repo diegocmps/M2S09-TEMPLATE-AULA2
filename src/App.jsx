@@ -1,16 +1,16 @@
 import { BrowserRouter } from "react-router-dom"
 import { AppRoutes } from "./routes"
-import { ContadorProvider } from "./contexts/contador"
+import { AuthProvider } from "./contexts/auth"
 
 export function App() {
 
   return (
     <>
-      <ContadorProvider>
+     <AuthProvider>
         <BrowserRouter>
           <AppRoutes />
         </BrowserRouter>
-      </ContadorProvider>
+     </AuthProvider>
     </>
   )
 }
