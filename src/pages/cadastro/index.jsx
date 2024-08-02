@@ -45,6 +45,18 @@ export function CadastroPage() {
                         />
                     </div>
 
+                    <div className="mb-3">
+                        <label htmlFor="exampleFormControlInput1" className="form-label">Idade</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="exampleFormControlInput1"
+                            placeholder="18"
+                            {...register('idade')}
+                        />
+                    </div>
+
+
 
                     <div className="mb-3">
                         <label htmlFor="exampleFormControlInput1" className="form-label">Senha</label>
